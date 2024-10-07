@@ -46,7 +46,7 @@ const updateMovie = async (req, res) => {
             const oldPosterPath = path.join(__dirname, '../uploads/', movies.poster);
             fs.unlink(oldPosterPath, (err) => {
                 if (err) {
-                    console.error('Error while deleting old poster:', err);
+                    console.error('Update Err:', err);
                 }
             });
             movies.poster = req.file.filename;
@@ -66,7 +66,7 @@ const updateMovie = async (req, res) => {
         // Delete the poster image from the file system
         fs.unlink(posterPath, (err) => {
             if (err) {
-                console.error('Error while deleting poster:', err);
+                console.error('Delete Err:', err);
             }
         });
 
